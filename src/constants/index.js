@@ -1,21 +1,14 @@
-export const REGEX = {
-    EMAIL: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-    PHONE: /^[6-9]\d{9}$/,
-};
+const SCHOOL_NAME = 'Government Senior Secondary Smart School - Boys';
 
-export const FORM_ERROR_MESSAGES = {
-    REQUIRED: 'This field is required',
-    EMAIL: {
-        INVALID: 'Please provide a valid email address',
-    },
-    PASSWORD: {
-        MIN_LENGTH: 'Please provide a password with at least 3 characters',
-    },
-    PHONE: {
-        INVALID: 'Please provide a valid phone number',
-    },
-};
+const SCHOOL_LOCATION = 'Sahnewal';
+const SCHOOL_DISTRICT = 'Ludhiana';
+const SCHOOL_SUPPORT_NUMBER = '6280168572';
+const SCHOOL_SUPPORT_EMAIL = 'niamudeen6280@gmail.com';
 
-export const RESPONSE_MESSAGES = {
-    SEVER_ERROR: 'Something went wrong. Please try again',
+export {
+    SCHOOL_NAME,
+    SCHOOL_LOCATION,
+    SCHOOL_DISTRICT,
+    SCHOOL_SUPPORT_NUMBER,
+    SCHOOL_SUPPORT_EMAIL,
 };

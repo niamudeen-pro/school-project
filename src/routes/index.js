@@ -1,54 +1,54 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../components/layout/AppLayout';
-import LandingPage from '../pages/LandingPage';
-
 import NotFoundPage from '../pages/NotFoundPage';
-import ProductsPage from '../pages/ProductsPage';
-import LoginPage from '../pages/LoginPage';
-import GalleryPage from '../pages/GalleryPage';
+import HomePage from '../pages/HomePage';
 
-export const ALL_ROUTES = [
+const ALL_ROUTES = [
     {
         id: 1,
-        path: '/',
-        element: <LandingPage />,
         title: 'Home',
+        path: '/',
+        element: <HomePage />,
     },
     {
         id: 2,
-        path: '/login',
-        element: <LoginPage />,
-        title: 'Login',
-        isButton: true,
+        title: 'About',
+        path: '#about',
+        childrens: [
+            {
+                id: 1,
+                title: 'Message from principle',
+                path: '#about-us',
+            },
+            {
+                id: 2,
+                title: 'Vision Mission Motto',
+                path: '#about-us',
+            },
+            {
+                id: 3,
+                title: 'Our facilities',
+                path: '#about-us',
+            },
+        ],
     },
     {
         id: 3,
-        path: '/products',
-        element: <ProductsPage />,
-        title: 'Products',
-        isPrivate: true,
-    },
-    {
-        id: 4,
-        path: '/gallery-page',
-        element: <GalleryPage />,
-        title: 'Gallery',
-        isPrivate: true,
-        ishidden: true,
+        title: 'Contact Us',
+        path: '#contact',
     },
 ];
 
-export const PRIVATE_ROUTES =
+const PUBLIC_ROUTES =
+    (ALL_ROUTES?.length > 0 &&
+        ALL_ROUTES.filter((menu) => !menu.isPrivate && !menu.ishidden)) ||
+    [];
+const PRIVATE_ROUTES =
     (ALL_ROUTES?.length > 0 &&
         ALL_ROUTES.filter((route) => route.isPrivate && !route.ishidden)) ||
     [];
 
-export const PUBLIC_ROUTES =
-    (ALL_ROUTES?.length > 0 &&
-        ALL_ROUTES.filter((menu) => !menu.isPrivate && !menu.ishidden)) ||
-    [];
-
-export const _router = createBrowserRouter([
+const _router = createBrowserRouter([
     {
         element: <AppLayout />,
         children: [...PUBLIC_ROUTES, ...PRIVATE_ROUTES],
@@ -58,3 +58,5 @@ export const _router = createBrowserRouter([
         element: <NotFoundPage />,
     },
 ]);
+
+export { _router, PUBLIC_ROUTES, PRIVATE_ROUTES, ALL_ROUTES };

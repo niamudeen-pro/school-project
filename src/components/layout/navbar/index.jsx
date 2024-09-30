@@ -6,41 +6,15 @@ import useWindowSize from '../../../hooks/useWindowSize';
 import { GoTriangleDown } from 'react-icons/go';
 import { FaPhone } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import {
+    SCHOOL_LOCATION,
+    SCHOOL_NAME,
+    SCHOOL_SUPPORT_EMAIL,
+    SCHOOL_SUPPORT_NUMBER,
+} from '../../../constants';
+import SchoolLogo from '../../shared/SchoolLogo';
+import { PUBLIC_ROUTES } from '../../../routes';
 
-const ROUTES = [
-    {
-        id: 1,
-        title: 'Home',
-        path: '/',
-    },
-    {
-        id: 2,
-        title: 'About',
-        path: '#about',
-        childrens: [
-            {
-                id: 1,
-                title: 'Message from principle',
-                path: '#about-us',
-            },
-            {
-                id: 2,
-                title: 'Vision Mission Motto',
-                path: '#about-us',
-            },
-            {
-                id: 3,
-                title: 'Our facilities',
-                path: '#about-us',
-            },
-        ],
-    },
-    {
-        id: 3,
-        title: 'Contact Us',
-        path: '#contact',
-    },
-];
 export default function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const windowSize = useWindowSize();
@@ -59,17 +33,18 @@ export default function Navbar() {
 
     return (
         <div className="bg-primary text-white top-0 sticky z-50">
+            {/* action bar code *********************** */}
+
             <div className="bg-secondary text-xs text-white p-4 flex justify-between sm:justify-start items-center w-full">
-                <div className="custom_container">
+                <div className="custom_container w-full">
                     <div className="flex gap-4">
-                        <span className="flex items-center gap-2">
-                            <FaPhone /> 6280168572
+                        <span className="flex items-center gap-2 cursor-pointer">
+                            <FaPhone /> {SCHOOL_SUPPORT_NUMBER}
                         </span>
-                        <span className="flex items-center gap-2">
-                            <MdEmail /> niamudeen6280@gmail.com
+                        <span className="flex items-center gap-2 cursor-pointer">
+                            <MdEmail /> {SCHOOL_SUPPORT_EMAIL}
                         </span>
                     </div>
-                    <div></div>
                 </div>
                 {isNavOpen ? (
                     <IoCloseOutline
@@ -85,17 +60,15 @@ export default function Navbar() {
                     />
                 )}
             </div>
+
+            {/* navbar code *********************** */}
             <header className="custom_container w-full">
-                <div className="flex items-center justify-center gap-4 py-4">
-                    <img
-                        src="https://www.springdalesdubai.com/wp-content/uploads/2020/07/footer.png"
-                        alt="Brand Logo"
-                        className="w-24"
-                    />
+                <div className="flex items-center justify-center gap-4 py-6 flex-col sm:flex-row">
+                    <SchoolLogo />
                     <h2 className="font-semibold uppercase text-xl sm:text-2xl">
-                        Government Senior Secondary Smart School - Boys
+                        {SCHOOL_NAME}
                         <br />
-                        Sahnewal
+                        {SCHOOL_LOCATION}
                     </h2>
                 </div>
 
@@ -113,8 +86,8 @@ export default function Navbar() {
                                 : 'flex gap-14 capitalize'
                         }
                     >
-                        {ROUTES?.length > 0 &&
-                            ROUTES?.filter(
+                        {PUBLIC_ROUTES?.length > 0 &&
+                            PUBLIC_ROUTES?.filter(
                                 (route) =>
                                     !route.private &&
                                     !route.hidden &&

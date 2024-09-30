@@ -1,9 +1,8 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import Navbar from './navbar';
 import useAuth from '../../hooks/useAuth';
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../../routes';
-import HeroSection from '../HeroSection';
 import Footer from './Footer';
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../../routes';
 
 export default function AppLayout() {
     const privateRoutes = PRIVATE_ROUTES.map((menu) => menu.path);
@@ -21,9 +20,7 @@ export default function AppLayout() {
 
     return (
         <>
-            {/* <ActionBar /> */}
             <Navbar />
-            <HeroSection />
             <Outlet />
             <Footer />
         </>
