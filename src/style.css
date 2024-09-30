@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hide_scrollbar {
+    scrollbar-width: none;
+}
+
+.sectionCustomHeight {
+    min-height: calc(100vh - 80px);
+}
+
+/* custom css ends  here  */
+
+@layer utilities {
+    .custom_container {
+        @apply max-w-[1200px] mx-auto px-[10%] xl:px-0;
+    }
+
+    .flex_center {
+        @apply flex justify-center items-center;
+    }
+
+    .flex_between {
+        @apply flex justify-between items-center;
+    }
+
+    .custom_input {
+        @apply w-full border border-gray-200 py-2 pl-4 rounded-md;
+    }
+
+    .btn {
+        @apply bg-black text-white text-xs py-3 px-8 rounded-lg shadow-lg capitalize cursor-pointer hover:bg-black/80 transition-all duration-300 ease-in-out;
+    }
+
+    .grayBtn {
+        @apply text-xs bg-gray-100 py-3 px-8 rounded-md transition-all duration-300 ease-in-out;
+    }
+
+    .section {
+        @apply sectionCustomHeight  custom_container flex_center  p-8;
+    }
+
+    .transition {
+        @apply transition-all duration-300 ease-in-out;
+    }
+}
+
+.nav_link,
+.active_nav_link {
+    position: relative;
+}
+.nav_link::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 0%;
+    background-color: #fff;
+    bottom: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.active_nav_link::before {
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.nav_link:hover::before {
+    width: 100%;
+}
