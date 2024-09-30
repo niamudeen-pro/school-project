@@ -1,6 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import Navbar from './navbar';
-import useAuth from '../../hooks/useAuth';
 import Footer from './Footer';
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '../../routes';
 
@@ -9,7 +8,7 @@ export default function AppLayout() {
 
     const publicRoutes = PUBLIC_ROUTES.map((menu) => menu.path);
 
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn } = false;
     const currentRoute = useLocation().pathname;
 
     if (!isLoggedIn && privateRoutes.includes(currentRoute))
