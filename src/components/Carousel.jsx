@@ -40,7 +40,7 @@ export default function CarouselComponent() {
             {slides?.length > 0 &&
                 slides.map((slide, index) => (
                     <SwiperSlide key={index}>
-                        <div className="relative h-[550px] bg-primary sm:h-[800px]">
+                        <div className="relative h-[500px] bg-primary sm:h-[800px]">
                             <img
                                 src={slide?.image}
                                 alt="slide"

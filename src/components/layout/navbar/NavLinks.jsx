@@ -14,14 +14,14 @@ function MobileNavLinks({
             {route?.childrens?.length > 0 ? (
                 <li
                     key={route.id}
-                    className={`mb-4 rounded-md py-3 ${
+                    className={`rounded-md py-3 ${
                         currentRoute === route.path && 'bg-white text-primary'
                     }`}
                     onClick={() => {
                         handleActiveMenu(route);
                     }}
                 >
-                    <span className="flex_between px-4">
+                    <span className="flex_between px-4 text-sm">
                         {route.title}
                         {route?.childrens?.length > 0 && (
                             <GoTriangleDown className="text-gray-200" />
@@ -57,7 +57,7 @@ function MobileNavLinks({
                 <Link to={route.path}>
                     <li
                         key={route.id}
-                        className={`mb-4 rounded-md py-3 ${
+                        className={`rounded-md py-3 ${
                             currentRoute === route.path &&
                             'bg-white text-primary'
                         }`}
@@ -65,7 +65,7 @@ function MobileNavLinks({
                             setIsNavOpen(false);
                         }}
                     >
-                        <span className="flex_between px-4">
+                        <span className="flex_between px-4 text-sm">
                             {route.title}
                             {route?.childrens?.length > 0 && (
                                 <GoTriangleDown className="text-gray-200" />

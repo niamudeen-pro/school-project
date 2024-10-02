@@ -72,7 +72,7 @@ export default function Navbar() {
             {/* main title bar *********************** */}
             <div className="bg-primary text-white">
                 <div className="custom_container flex w-full flex-col pt-4">
-                    <div className="flex flex-col items-center gap-4 sm:flex-row">
+                    <div className="flex flex-col items-center gap-4 pb-4 sm:flex-row">
                         <SchoolLogo />
                         <h2 className="max-w-xl text-center text-xl font-semibold uppercase sm:text-left">
                             {`${SCHOOL_NAME} 
@@ -94,7 +94,7 @@ export default function Navbar() {
                                         size={24}
                                     />
                                 </div>
-                                <ul className="mt-10">
+                                <ul className="mt-10 space-y-4">
                                     {NAV_MENU.map((route) => (
                                         <MobileNavLinks
                                             key={route.id}
