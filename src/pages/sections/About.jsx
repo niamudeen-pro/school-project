@@ -3,7 +3,7 @@ export default function AboutUsSection() {
         <section>
             <div className="custom_container my-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="space-y-6 bg-primary p-16 text-white">
+                    <div className="space-y-6 bg-primary p-8 text-white sm:p-16">
                         <p className="uppercase">ABOUT THE SCHOOL</p>
                         <h2 className="text-4xl">Since 2013</h2>
                         <p className="font-normal">

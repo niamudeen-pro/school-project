@@ -13,7 +13,7 @@ export default function PrincipalMessagePage() {
                             className="object-cover"
                         />
                     </div>
-                    <div className="bg-primary p-16">
+                    <div className="bg-primary p-8 sm:p-16">
                         <p>
                             Dear Parents,
                             <br /> <br />
