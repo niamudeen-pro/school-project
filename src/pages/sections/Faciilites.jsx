@@ -6,13 +6,13 @@ export default function FaciilitesSection() {
         <section className="section">
             <div className="flex items-center">
                 <hr className="flex-grow border-t border-black" />
-                <h2 className="uppercase text-center text-xl mx-4">
+                <h2 className="mx-4 text-center text-xl uppercase">
                     School Facilities
                 </h2>
                 <hr className="flex-grow border-t border-black" />
             </div>
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-14 mx-auto">
+            <div className="mx-auto grid grid-cols-1 gap-8 py-14 md:grid-cols-2 lg:grid-cols-3">
                 {SCHOOL_FACILITIES?.length > 0 &&
                     SCHOOL_FACILITIES.map((facility, index) => (
                         <div key={facility.id} className="space-y-4">
@@ -20,7 +20,7 @@ export default function FaciilitesSection() {
                                 <img
                                     src={facility.imageUrl}
                                     alt=""
-                                    className="hover:scale-105 transition cursor-pointer"
+                                    className="cursor-pointer transition hover:scale-105"
                                 />
                             </div>
                             <h2 className="text-center">{facility.title}</h2>

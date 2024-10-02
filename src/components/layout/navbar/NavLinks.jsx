@@ -1,26 +1,149 @@
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { GoTriangleDown } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 
-export function NavLinks({ route, setIsNavOpen }) {
-    const currentRoute = useLocation().pathname;
-
-    const navLinkClass = `text-xs bg-gray-100 py-3 px-8 rounded-md transition-all duration-300 ease-in-out ${
-        currentRoute === route.path && '!btn'
-    }`;
-
+function MobileNavLinks({
+    route,
+    currentRoute,
+    handleActiveMenu,
+    activeMenu,
+    setIsNavOpen,
+}) {
     return (
         <>
-            {route?.isButton ? (
-                <Link to={route.path}>
-                    <button className={navLinkClass}>Login</button>
-                </Link>
-            ) : (
+            {route?.childrens?.length > 0 ? (
                 <li
-                    className={navLinkClass}
-                    onClick={() => setIsNavOpen(false)}
+                    key={route.id}
+                    className={`mb-4 rounded-md py-3 ${
+                        currentRoute === route.path && 'bg-white text-primary'
+                    }`}
+                    onClick={() => {
+                        handleActiveMenu(route);
+                    }}
                 >
-                    <Link to={route.path}>{route.title}</Link>
+                    <span className="flex_between px-4">
+                        {route.title}
+                        {route?.childrens?.length > 0 && (
+                            <GoTriangleDown className="text-gray-200" />
+                        )}
+                    </span>
+
+                    {/* submenu */}
+
+                    {activeMenu === route.id &&
+                        route?.childrens?.length > 0 && (
+                            <ul className="pt-2">
+                                {route?.childrens.map((child) => (
+                                    <li
+                                        key={child.id}
+                                        className={`ml-4 rounded-md px-4 py-3 ${
+                                            currentRoute === child.path &&
+                                            'bg-white text-primary'
+                                        }`}
+                                        onClick={() => setIsNavOpen(false)}
+                                    >
+                                        <Link
+                                            to={child.path}
+                                            className="text-nowrap text-xs"
+                                        >
+                                            {child.title}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                 </li>
+            ) : (
+                <Link to={route.path}>
+                    <li
+                        key={route.id}
+                        className={`mb-4 rounded-md py-3 ${
+                            currentRoute === route.path &&
+                            'bg-white text-primary'
+                        }`}
+                        onClick={() => {
+                            setIsNavOpen(false);
+                        }}
+                    >
+                        <span className="flex_between px-4">
+                            {route.title}
+                            {route?.childrens?.length > 0 && (
+                                <GoTriangleDown className="text-gray-200" />
+                            )}
+                        </span>
+
+                        {/* submenu */}
+
+                        {activeMenu === route.id &&
+                            route?.childrens?.length > 0 && (
+                                <ul className="pt-2">
+                                    {route?.childrens.map((child) => (
+                                        <li
+                                            key={child.id}
+                                            className={`px-4 py-3`}
+                                            onClick={() => setIsNavOpen(false)}
+                                        >
+                                            <Link
+                                                to={child.path}
+                                                className="text-nowrap text-xs"
+                                            >
+                                                {child.title}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                    </li>
+                </Link>
             )}
         </>
     );
 }
+
+function NavLinks({ route, currentRoute, setIsNavOpen }) {
+    return (
+        <>
+            <li
+                key={route.id}
+                className={`nav_link group relative rounded-md py-6 transition-all duration-300 ease-in-out ${
+                    currentRoute === route.path && 'active_nav_link'
+                }`}
+                onClick={() => setIsNavOpen(false)}
+            >
+                <Link
+                    to={route.path}
+                    className="flex items-center gap-2 text-nowrap text-sm"
+                >
+                    {route.title}
+                    {route?.childrens?.length > 0 && (
+                        <GoTriangleDown className="text-gray-200" />
+                    )}
+                </Link>
+
+                {/* submenu */}
+
+                <div className="absolute top-full z-50 hidden min-w-[200px] bg-gray-100 text-black transition group-hover:block">
+                    <ul>
+                        {route?.childrens?.length > 0 &&
+                            route?.childrens.map((child) => (
+                                <li
+                                    key={child.id}
+                                    className={`border-b px-4 py-3 transition hover:bg-gray-200`}
+                                    onClick={() => setIsNavOpen(false)}
+                                >
+                                    <Link
+                                        to={child.path}
+                                        className="text-nowrap text-xs text-gray-500 hover:text-gray-700"
+                                    >
+                                        {child.title}
+                                    </Link>
+                                </li>
+                            ))}
+                    </ul>
+                </div>
+            </li>
+        </>
+    );
+}
+
+export { MobileNavLinks, NavLinks };

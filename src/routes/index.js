@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import AppLayout from '../components/layout/AppLayout';
 import NotFoundPage from '../pages/NotFoundPage';
 import HomePage from '../pages/HomePage';
+import FacilitiesPage from '../pages/FacilitiesPage';
+import PrincipalMessagePage from '../pages/PrincipalMessagePage';
 
 const ALL_ROUTES = [
     {
@@ -17,18 +19,13 @@ const ALL_ROUTES = [
         childrens: [
             {
                 id: 1,
-                title: 'Message from principle',
-                path: '#about-us',
+                title: 'Message from principal',
+                path: '/principals-message',
             },
             {
                 id: 2,
-                title: 'Vision Mission Motto',
-                path: '#about-us',
-            },
-            {
-                id: 3,
                 title: 'Our facilities',
-                path: '#about-us',
+                path: '/facilities',
             },
         ],
     },
@@ -36,6 +33,20 @@ const ALL_ROUTES = [
         id: 3,
         title: 'Contact Us',
         path: '#contact',
+    },
+    {
+        id: 4,
+        title: 'Facilites',
+        element: <FacilitiesPage />,
+        path: '/facilities',
+        excludeNav: true,
+    },
+    {
+        id: 5,
+        title: 'Message from principal',
+        path: '/principals-message',
+        element: <PrincipalMessagePage />,
+        excludeNav: true,
     },
 ];
 

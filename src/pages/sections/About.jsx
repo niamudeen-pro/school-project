@@ -1,9 +1,9 @@
 export default function AboutUsSection() {
     return (
         <section>
-            <div className="custom_container my-24 ">
+            <div className="custom_container my-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="bg-primary text-white p-16 space-y-6">
+                    <div className="space-y-6 bg-primary p-16 text-white">
                         <p className="uppercase">ABOUT THE SCHOOL</p>
                         <h2 className="text-4xl">Since 2013</h2>
                         <p className="font-normal">
