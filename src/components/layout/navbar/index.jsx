@@ -74,7 +74,7 @@ export default function Navbar() {
                 <div className="custom_container flex w-full flex-col pt-4">
                     <div className="flex flex-col items-center gap-4 pb-4 sm:flex-row">
                         <SchoolLogo />
-                        <h2 className="max-w-xl text-center text-xl font-semibold uppercase sm:text-left">
+                        <h2 className="max-w-xl text-center text-base font-semibold uppercase sm:text-left sm:text-xl">
                             {`${SCHOOL_NAME} 
                             ${SCHOOL_LOCATION}, ${SCHOOL_DISTRICT}`}
                         </h2>
