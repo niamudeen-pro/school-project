@@ -7,7 +7,7 @@ export default function ActionBar({ isNavOpen, toggle }) {
     return (
         <>
             <div className="flex w-full items-center justify-between bg-secondary p-4 text-xs text-white sm:justify-start">
-                <div className="custom_container flex_between w-full">
+                <div className="custom_container flex_between w-full !px-0">
                     <div className="flex gap-4">
                         <span className="flex cursor-pointer items-center gap-2">
                             <FaPhone /> {SCHOOL_SUPPORT_NUMBER}

@@ -1,14 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// import required modules
-import { Autoplay } from 'swiper/modules';
-
-export default function CarouselComponent() {
+export default function BannerSection() {
     const slides = [
         {
             id: 1,
@@ -58,18 +54,16 @@ export default function CarouselComponent() {
                                     typeSpeed={100}
                                     className="text-4xl font-bold sm:text-7xl"
                                 /> */}
-                                <p className="text-lg text-white">
-                                    <blockquote className="text-lg italic">
-                                        " Together we learn, together we grow."
-                                    </blockquote>
-                                </p>
+                                <blockquote className="text-sm italic text-white sm:text-lg">
+                                    " Together we learn, together we grow."
+                                </blockquote>
                                 <div className="space-x-6">
                                     <button className="primary_btn">
                                         Apply Now
                                     </button>
                                     <button className="btn">Learn more</button>
                                 </div>
-                                <div className="absolute bottom-14 left-0 right-0 mb-4 text-center sm:bottom-28">
+                                <div className="absolute bottom-8 left-0 right-0 mb-4 text-center sm:bottom-28">
                                     <div className="flex justify-center gap-4 divide-x-2">
                                         <p className="px-4 hover:text-white">
                                             Qualified Teachers

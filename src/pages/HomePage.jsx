@@ -1,12 +1,11 @@
-import React from 'react';
-import HeroSection from '../components/HeroSection';
 import FaciilitesSection from './sections/Faciilites';
 import AboutUsSection from './sections/About';
+import BannerSection from './sections/BannerSection';
 
 export default function HomePage() {
     return (
         <>
-            <HeroSection />
+            <BannerSection />
             <AboutUsSection />
             <FaciilitesSection />
         </>

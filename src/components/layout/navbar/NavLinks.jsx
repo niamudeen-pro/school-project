@@ -11,32 +11,35 @@ function MobileNavLinks({
 }) {
     return (
         <>
+            {/* navlinks with dropdowns */}
             {route?.childrens?.length > 0 ? (
-                <li
-                    key={route.id}
-                    className={`rounded-md py-3 ${
-                        currentRoute === route.path && 'bg-white text-primary'
-                    }`}
-                    onClick={() => {
-                        handleActiveMenu(route);
-                    }}
-                >
-                    <span className="flex_between px-4 text-sm">
-                        {route.title}
-                        {route?.childrens?.length > 0 && (
-                            <GoTriangleDown className="text-gray-200" />
-                        )}
-                    </span>
+                <>
+                    <li
+                        key={route.id}
+                        className={`custom_border mb-4 rounded-md py-3 ${
+                            currentRoute === route.path &&
+                            'bg-white text-primary'
+                        }`}
+                        onClick={() => {
+                            handleActiveMenu(route);
+                        }}
+                    >
+                        <span className="flex_between px-4 text-sm">
+                            {route.title}
+                            {route?.childrens?.length > 0 && (
+                                <GoTriangleDown className="text-gray-200" />
+                            )}
+                        </span>
 
-                    {/* submenu */}
-
+                        {/* submenu */}
+                    </li>
                     {activeMenu === route.id &&
                         route?.childrens?.length > 0 && (
                             <ul className="pt-2">
                                 {route?.childrens.map((child) => (
                                     <li
                                         key={child.id}
-                                        className={`ml-4 rounded-md px-4 py-3 ${
+                                        className={`custom_border mb-4 ml-4 rounded-md px-4 py-3 ${
                                             currentRoute === child.path &&
                                             'bg-white text-primary'
                                         }`}
@@ -52,12 +55,12 @@ function MobileNavLinks({
                                 ))}
                             </ul>
                         )}
-                </li>
+                </>
             ) : (
                 <Link to={route.path}>
                     <li
                         key={route.id}
-                        className={`rounded-md py-3 ${
+                        className={`custom_border mb-4 rounded-md py-3 ${
                             currentRoute === route.path &&
                             'bg-white text-primary'
                         }`}

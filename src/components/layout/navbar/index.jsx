@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useWindowSize from '../../../hooks/useWindowSize';
 
@@ -14,6 +14,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 
 import { MobileNavLinks, NavLinks } from './NavLinks';
 import ActionBar from '../ActionBar';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 export default function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,9 +24,12 @@ export default function Navbar() {
 
     const { pathname: currentRoute } = useLocation();
 
+    const mobileRef = useRef();
+
     const toggle = () => {
         setIsNavOpen((prev) => !prev);
     };
+    useClickOutside(mobileRef, toggle);
 
     useEffect(() => {
         if (windowSize.width > 1280) {
@@ -85,6 +89,7 @@ export default function Navbar() {
                         <nav className="fixed left-0 top-0 z-20 flex min-h-screen w-full">
                             <div
                                 className={`${isNavOpen ? 'translate-x-0' : '-translate-x-full'} w-[80%] bg-primary px-10 py-4 transition-all duration-300 ease-in-out`}
+                                ref={mobileRef}
                             >
                                 <div className="flex_between">
                                     <SchoolLogo />
@@ -94,7 +99,7 @@ export default function Navbar() {
                                         size={24}
                                     />
                                 </div>
-                                <ul className="mt-10 space-y-4">
+                                <ul className="mt-10">
                                     {NAV_MENU.map((route) => (
                                         <MobileNavLinks
                                             key={route.id}

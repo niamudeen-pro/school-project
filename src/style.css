@@ -69,10 +69,10 @@ img {
     }
 
     .primary_btn {
-        @apply rounded-md bg-primary px-6 py-3 text-white hover:bg-secondary;
+        @apply rounded-md bg-primary px-6 py-3 text-sm text-white hover:bg-secondary sm:text-base;
     }
     .btn {
-        @apply rounded-md bg-white px-6 py-3 text-primary hover:bg-slate-50;
+        @apply rounded-md bg-white px-6 py-3 text-sm text-primary hover:bg-slate-50 sm:text-base;
     }
 
     .grayBtn {
@@ -114,6 +114,11 @@ img {
 
 .nav_link:hover::before {
     width: 100%;
+}
+
+.custom_border {
+    border-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer_copyright {
