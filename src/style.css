@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -17,6 +21,18 @@ body {
 img {
     width: 100%;
     height: 100%;
+}
+
+.about_section {
+    background-image: url('https://media.istockphoto.com/id/2075598823/photo/happy-group-of-indian-rural-children-in-school-uniform-standing-looking-at-camera-in-school.jpg?s=2048x2048&w=is&k=20&c=DVHaWJEz_oIz0Rd1j73X0M886-FHjXHAxQ2WoM16NA4=');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hide_scrollbar {
@@ -31,13 +47,13 @@ img {
 
 @layer base {
     p {
-        @apply text-sm;
+        @apply text-sm text-gray-300;
     }
 }
 
 @layer utilities {
     .custom_container {
-        @apply max-w-[1200px] mx-auto px-[10%] xl:px-0;
+        @apply max-w-[1200px] mx-auto px-[4%] xl:px-0;
     }
 
     .flex_center {
@@ -52,8 +68,11 @@ img {
         @apply w-full border border-gray-200 py-2 pl-4 rounded-md;
     }
 
+    .primary_btn {
+        @apply bg-primary text-white px-6 py-4 rounded-md  hover:bg-secondary;
+    }
     .btn {
-        @apply bg-black text-white text-xs py-3 px-8 rounded-lg shadow-lg capitalize cursor-pointer hover:bg-black/80 transition-all duration-300 ease-in-out;
+        @apply bg-white px-6 py-4 rounded-md text-primary hover:bg-slate-50;
     }
 
     .grayBtn {
@@ -61,7 +80,7 @@ img {
     }
 
     .section {
-        @apply sectionCustomHeight  custom_container flex_center  p-8;
+        @apply custom_container mb-24;
     }
 
     .transition {
@@ -95,4 +114,9 @@ img {
 
 .nav_link:hover::before {
     width: 100%;
+}
+
+.footer_copyright {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
