@@ -7,9 +7,8 @@ export default function Footer() {
             <div className="flex_center flex-col space-y-8 px-4 py-10">
                 <SchoolLogo />
                 <p className="max-w-6xl">
-                    {`${SCHOOL_NAME} is an established private school located in
-                    ${SCHOOL_LOCATION}, ${SCHOOL_DISTRICT} is affiliated to the Central Board of
-                    Secondary Education, India.`}
+                    {`${SCHOOL_NAME} is an established  school located in
+                    ${SCHOOL_LOCATION}, ${SCHOOL_DISTRICT} is affiliated to the PSEB, India.`}
                 </p>
             </div>
             <div className="flex_center footer_copyright px-4 py-10">
