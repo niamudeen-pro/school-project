@@ -1,16 +1,11 @@
 import React from 'react';
 import { SCHOOL_FACILITIES } from '../../constants';
+import SectionTitle from '../../components/SectionTitle';
 
 export default function FaciilitesSection() {
     return (
         <section className="section">
-            <div className="flex items-center">
-                <hr className="flex-grow border-t border-black" />
-                <h2 className="mx-4 text-center text-xl uppercase">
-                    School Facilities
-                </h2>
-                <hr className="flex-grow border-t border-black" />
-            </div>
+            <SectionTitle>School Facilities</SectionTitle>
 
             <div className="mx-auto grid grid-cols-1 gap-8 py-14 md:grid-cols-2 lg:grid-cols-3">
                 {SCHOOL_FACILITIES?.length > 0 &&

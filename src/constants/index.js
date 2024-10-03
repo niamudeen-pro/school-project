@@ -3,7 +3,7 @@ const SCHOOL_NAME = 'Government Senior Secondary Smart School - Boys';
 
 const SCHOOL_LOCATION = 'Sahnewal';
 const SCHOOL_DISTRICT = 'Ludhiana';
-const SCHOOL_SUPPORT_NUMBER = '+9185478569852';
+const SCHOOL_SUPPORT_NUMBER = '+91 85478569852';
 const SCHOOL_SUPPORT_EMAIL = 'school@gmail.com';
 const SCHOOL_FACILITIES = [
     {
