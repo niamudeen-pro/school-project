@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "../../routes";
 import useRoute from "../../hooks/useRoute";
 import Loader from "../Loader";
+import TopButton from "../TopButton";
 
 export default function AppLayout() {
     const privateRoutes = PRIVATE_ROUTES.map((menu) => menu.path);
@@ -25,6 +26,7 @@ export default function AppLayout() {
             <Outlet />
             <Footer />
             <Loader />
+            <TopButton />
         </>
     );
 }

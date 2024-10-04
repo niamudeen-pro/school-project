@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import useWindowSize from '../../../hooks/useWindowSize';
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 import {
     SCHOOL_DISTRICT,
     SCHOOL_LOCATION,
     SCHOOL_NAME,
-} from '../../../constants';
-import SchoolLogo from '../../shared/SchoolLogo';
-import { PUBLIC_ROUTES } from '../../../routes';
+} from "../../../constants";
+import SchoolLogo from "../../shared/SchoolLogo";
+import { PUBLIC_ROUTES } from "../../../routes";
 
-import { IoCloseOutline } from 'react-icons/io5';
+import { IoCloseOutline } from "react-icons/io5";
 
-import { MobileNavLinks, NavLinks } from './NavLinks';
-import ActionBar from '../ActionBar';
-import useClickOutside from '../../../hooks/useClickOutside';
+import { MobileNavLinks, NavLinks } from "./NavLinks";
+import ActionBar from "../ActionBar";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 export default function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -42,11 +42,11 @@ export default function Navbar() {
             setScrollY(window.scrollY);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
         // Cleanup the event listener on component unmount
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
@@ -88,7 +88,7 @@ export default function Navbar() {
                     {isNavOpen ? (
                         <nav className="fixed left-0 top-0 z-20 flex min-h-screen w-full">
                             <div
-                                className={`${isNavOpen ? 'translate-x-0' : '-translate-x-full'} w-[80%] bg-primary px-10 py-4 transition-all duration-300 ease-in-out`}
+                                className={`${isNavOpen ? "translate-x-0" : "-translate-x-full"} w-[80%] bg-primary px-10 py-4 transition-all duration-300 ease-in-out`}
                                 ref={mobileRef}
                             >
                                 <div className="flex_between">

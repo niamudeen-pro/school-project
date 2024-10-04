@@ -1,7 +1,7 @@
-import { FaPhone } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { SCHOOL_SUPPORT_EMAIL, SCHOOL_SUPPORT_NUMBER } from '../../constants';
-import { HiBars3BottomRight } from 'react-icons/hi2';
+import { FaPhone } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { SCHOOL_SUPPORT_EMAIL, SCHOOL_SUPPORT_NUMBER } from "../../constants";
+import { HiBars3BottomRight } from "react-icons/hi2";
 
 export default function ActionBar({ isNavOpen, toggle }) {
     return (

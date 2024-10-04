@@ -1,6 +1,6 @@
-import React from 'react';
-import { GoTriangleDown } from 'react-icons/go';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { GoTriangleDown } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 function MobileNavLinks({
     route,
@@ -18,7 +18,7 @@ function MobileNavLinks({
                         key={route.id}
                         className={`custom_border mb-4 rounded-md py-3 ${
                             currentRoute === route.path &&
-                            'bg-white text-primary'
+                            "bg-white text-primary"
                         }`}
                         onClick={() => {
                             handleActiveMenu(route);
@@ -41,7 +41,7 @@ function MobileNavLinks({
                                         key={child.id}
                                         className={`custom_border mb-4 ml-4 rounded-md px-4 py-3 ${
                                             currentRoute === child.path &&
-                                            'bg-white text-primary'
+                                            "bg-white text-primary"
                                         }`}
                                         onClick={() => setIsNavOpen(false)}
                                     >
@@ -62,7 +62,7 @@ function MobileNavLinks({
                         key={route.id}
                         className={`custom_border mb-4 rounded-md py-3 ${
                             currentRoute === route.path &&
-                            'bg-white text-primary'
+                            "bg-white text-primary"
                         }`}
                         onClick={() => {
                             setIsNavOpen(false);
@@ -109,7 +109,7 @@ function NavLinks({ route, currentRoute, setIsNavOpen }) {
             <li
                 key={route.id}
                 className={`nav_link group relative rounded-md py-6 transition-all duration-300 ease-in-out ${
-                    currentRoute === route.path && 'active_nav_link'
+                    currentRoute === route.path && "active_nav_link"
                 }`}
                 onClick={() => setIsNavOpen(false)}
             >
