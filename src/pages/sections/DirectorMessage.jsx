@@ -1,6 +1,6 @@
-import React from 'react';
-import { SCHOOL_NAME } from '../../constants';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { SCHOOL_NAME } from "../../constants";
+import { Link } from "react-router-dom";
 
 export default function DirectorMessage() {
     return (
@@ -18,7 +18,7 @@ export default function DirectorMessage() {
                                 />
                             </div>
                             <p className="text-white sm:text-base">
-                                Mrs. Marie James
+                                Mrs. Marie James ( Principal )
                             </p>
                         </div>
                         <p>

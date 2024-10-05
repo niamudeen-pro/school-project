@@ -1,12 +1,12 @@
-import React from 'react';
-import { SCHOOL_NAME } from '../constants';
-import SectionTitle from '../components/SectionTitle';
+import React from "react";
+import { SCHOOL_NAME } from "../constants";
+import SectionTitle from "../components/SectionTitle";
 
 export default function PrincipalMessagePage() {
     return (
         <section className="custom_container py-24">
             <div className="space-y-6 p-8 sm:p-16">
-                <SectionTitle>Director Message</SectionTitle>
+                <SectionTitle>Principal Message</SectionTitle>
                 <p className="text-black">
                     Dear Parents , {SCHOOL_NAME} has a well-established set of
                     core values which celebrates diversity, global citizenship,
@@ -34,8 +34,7 @@ export default function PrincipalMessagePage() {
                     step in learning.
                 </p>
                 <p className="text-center text-black sm:text-base">
-                    Mrs. Marie James <br />
-                    (Director)
+                    Mrs. Marie James
                 </p>
             </div>
         </section>

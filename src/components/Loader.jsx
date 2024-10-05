@@ -11,7 +11,7 @@ export default function Loader() {
         <div>
             {show && (
                 <section className="flexCenter flex_center fixed inset-0 z-50 bg-black/60">
-                    <div class="loader"></div>
+                    <div className="loader"></div>
                 </section>
             )}
         </div>
