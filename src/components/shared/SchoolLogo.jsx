@@ -1,4 +1,4 @@
-import SCHOOL_LOGO_IMAGE from '../../assets/images/school-logo.png';
+import SCHOOL_LOGO_IMAGE from "../../assets/images/school-logo.png";
 
 export default function SchoolLogo() {
     return (

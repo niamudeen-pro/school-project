@@ -1,13 +1,6 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setDataIntoLc } from '../utils/helper';
-import { useMutation } from '@tanstack/react-query';
-import axiosInstance from '../utils/axios';
-import { updateAuthUser } from '../store/features/authSlice';
-import { sendNotification } from '../utils/notifications';
-import { useForm } from 'react-hook-form';
-import { FORM_ERROR_MESSAGES, REGEX, RESPONSE_MESSAGES } from '../constants';
-import FormFieldError from '../components/shared/FormFieldError';
+import { useForm } from "react-hook-form";
+import FormFieldError from "../components/shared/FormFieldError";
+import SeoContent from "../components/shared/SeoContent";
 
 export default function LoginPage() {
     const {
@@ -16,90 +9,85 @@ export default function LoginPage() {
         formState: { errors },
     } = useForm();
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const { mutate, isPending } = useMutation({
-        mutationFn: async (user) => {
-            const response = await axiosInstance.post('/auth/login', user);
-            return response?.data || {};
-        },
-        onSuccess: (response) => {
-            if (response?.code === 'SUCCESS') {
-                const { token, user } = response;
-                dispatch(updateAuthUser(user));
-                setDataIntoLc('token', token);
-                setDataIntoLc('userId', user?._id);
-                navigate('/products');
-            }
-        },
-        onError: (error) => {
-            const errors = error?.response?.data?.errors;
-
-            if (errors && errors.length > 0 && errors[0]?.msg) {
-                sendNotification('error', errors[0]?.msg);
-            } else if (error?.response?.data?.code === 'ERROR') {
-                sendNotification('warning', RESPONSE_MESSAGES.SEVER_ERROR);
-            }
-        },
-    });
-
     const onSubmit = (data) => {
         if (!data) return;
-        mutate(data);
     };
+
+    const FIELD_REQUIRED = "This field is required";
+
+    const FORMINPUT_LIST = [
+        {
+            name: "email",
+            label: "Email",
+            type: "email",
+            placeholder: "Enter your email",
+            rules: {
+                required: {
+                    value: true,
+                    message: FIELD_REQUIRED,
+                },
+                pattern: {
+                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    message: "Please enter a valid email",
+                },
+            },
+            isLogin: true,
+        },
+        {
+            name: "password",
+            label: "Password",
+            type: "password",
+            placeholder: "Enter your password",
+            rules: {
+                required: {
+                    value: true,
+                    message: FIELD_REQUIRED,
+                },
+                minLength: {
+                    value: 3,
+                    message: "Password must be at least 3 characters",
+                },
+            },
+            isLogin: true,
+        },
+    ];
+
+    const LOGIN_INPUT_LIST =
+        FORMINPUT_LIST.filter((input) => input.isLogin) || [];
+
     return (
         <section className="section">
+            <SeoContent title="Login" />
             <form
-                className="max-w-[400px] min-h-[500px] mx-auto text-lg p-14 rounded-xl space-y-8 shadow-lg"
+                className="mx-auto min-h-[500px] max-w-[400px] space-y-8 rounded-xl p-14 text-lg shadow-lg"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <h2>Sign in</h2>
-                <div className="space-y-4 text-xs">
-                    <label className="capitalize">Email</label>
-                    <input
-                        autoComplete="off"
-                        {...register('email', {
-                            required: {
-                                value: true,
-                                message: FORM_ERROR_MESSAGES.REQUIRED,
-                            },
-                            pattern: {
-                                value: REGEX.EMAIL,
-                                message: FORM_ERROR_MESSAGES.EMAIL.INVALID,
-                            },
-                        })}
-                        className="custom_input"
-                    />
-                    {errors.email && (
-                        <FormFieldError message={errors.email.message} />
-                    )}
+                <h2 className="text-2xl">Login</h2>
+
+                <div className="space-y-4">
+                    {LOGIN_INPUT_LIST?.length > 0 &&
+                        LOGIN_INPUT_LIST.map((input) => (
+                            <div className="space-y-3 text-sm" key={input.name}>
+                                <label className="capitalize">
+                                    {input.label}
+                                </label>
+                                <input
+                                    autoComplete="off"
+                                    {...register(input.name, input.rules || {})}
+                                    type={input.type || "text"}
+                                    className="custom_input"
+                                />
+                                {errors[input.name] && (
+                                    <FormFieldError
+                                        message={errors[input.name].message}
+                                    />
+                                )}
+                            </div>
+                        ))}
                 </div>
 
-                <div className="space-y-4 text-xs">
-                    <label className="capitalize">Password</label>
-                    <input
-                        autoComplete="off"
-                        {...register('password', {
-                            required: {
-                                value: true,
-                                message: FORM_ERROR_MESSAGES.REQUIRED,
-                            },
-                            minLength: {
-                                value: 3,
-                                message:
-                                    FORM_ERROR_MESSAGES.PASSWORD.MIN_LENGTH,
-                            },
-                        })}
-                        className="custom_input"
-                    />
-                    {errors.password && (
-                        <FormFieldError message={errors.password.message} />
-                    )}
-                </div>
-
-                <button type="submit" className="btn w-full">
-                    {isPending ? 'Loading...' : 'Submit'}
+                <button type="submit" className="primary_btn w-full">
+                    Submit
                 </button>
 
                 {/* <p className="text-center">

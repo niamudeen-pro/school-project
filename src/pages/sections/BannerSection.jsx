@@ -99,18 +99,32 @@ function VideoBanner() {
     return (
         <div className="relative h-[500px] sm:h-[800px]">
             <div className="relative">
-                <video src={BANNER_VIDEO} autoPlay loop muted></video>
+                <video
+                    src={BANNER_VIDEO}
+                    autoPlay
+                    loop
+                    muted
+                    className="w-full"
+                ></video>
+                <div className="absolute bottom-[68px] left-0 right-0 z-40 text-center">
+                    <div className="flex justify-center gap-4 divide-x-2">
+                        <p className="px-4 hover:text-white">
+                            Qualified Teachers
+                        </p>
+                        <p className="px-4 hover:text-white">
+                            Diverse Programs
+                        </p>
+                        <p className="px-4 hover:text-white">
+                            Modern Facilities
+                        </p>
+                    </div>
+                </div>
                 <div className="z-1 absolute inset-0 bg-black opacity-40"></div>
             </div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center space-y-3 p-4 text-center text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 p-4 text-center text-white">
                 <h1 className="text-4xl font-bold sm:text-7xl">
                     Empowering minds, shaping futures.
                 </h1>
-                {/* <ReactTyped
-                strings={["Empowering minds, shaping futures."]}
-                typeSpeed={100}
-                className="text-4xl font-bold sm:text-7xl"
-            /> */}
                 <blockquote className="text-sm italic text-white sm:text-lg">
                     " Together we learn, together we grow."
                 </blockquote>

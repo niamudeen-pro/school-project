@@ -9,6 +9,8 @@ import {
 } from "../../../constants";
 import SchoolLogo from "../../shared/SchoolLogo";
 import { PUBLIC_ROUTES } from "../../../routes";
+import { BsInstagram } from "react-icons/bs";
+import { FaFacebookF } from "react-icons/fa";
 
 import { IoCloseOutline } from "react-icons/io5";
 
@@ -76,12 +78,18 @@ export default function Navbar() {
             {/* main title bar *********************** */}
             <div className="bg-primary text-white">
                 <div className="custom_container flex w-full flex-col pt-4">
-                    <div className="flex flex-col items-center gap-4 pb-4 sm:flex-row">
-                        <SchoolLogo />
-                        <h2 className="max-w-xl text-center text-base font-semibold uppercase sm:text-left sm:text-xl">
-                            {`${SCHOOL_NAME} 
+                    <div className="flex_between gap-4 pb-4">
+                        <div className="flex items-center gap-4 sm:flex-row">
+                            <SchoolLogo />
+                            <h2 className="max-w-xl text-center text-base font-semibold uppercase sm:text-left sm:text-xl">
+                                {`${SCHOOL_NAME} 
                             ${SCHOOL_LOCATION}, ${SCHOOL_DISTRICT}`}
-                        </h2>
+                            </h2>
+                        </div>
+                        <p className="hidden text-white sm:block">
+                            <span className="font-medium">VISTING TIME : </span>
+                            9:00 AM to 5:00 PM ( Mon to Sat )
+                        </p>
                     </div>
 
                     {/* mobile navbar */}
@@ -111,6 +119,22 @@ export default function Navbar() {
                                         />
                                     ))}
                                 </ul>
+                            </div>
+                            <div className="absolute bottom-8 left-8 space-y-4">
+                                <div className="flex gap-8">
+                                    <FaFacebookF
+                                        size={18}
+                                        className="cursor-pointer hover:scale-110"
+                                    />
+                                    <BsInstagram
+                                        size={18}
+                                        className="cursor-pointer hover:scale-110"
+                                    />
+                                </div>
+
+                                <p className="text-white">
+                                    9:00 AM to 5:00 PM ( Mon to Sat )
+                                </p>
                             </div>
                         </nav>
                     ) : (

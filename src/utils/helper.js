@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 // These functions are for local storage
 
 export const setDataIntoLc = (key, value, isJson = false) => {
@@ -17,3 +19,5 @@ export const getDataFromLc = (key, isJson = false) => {
 export const removeDataFromLc = (key) => {
     localStorage.removeItem(key);
 };
+
+export const cn = (...classes) => twMerge(clsx(...classes));

@@ -115,7 +115,7 @@ function NavLinks({ route, currentRoute, setIsNavOpen }) {
             >
                 <Link
                     to={route.path}
-                    className="flex items-center gap-2 text-nowrap text-sm"
+                    className="flex items-center gap-2 text-nowrap text-sm sm:text-base"
                 >
                     {route.title}
                     {route?.childrens?.length > 0 && (
@@ -136,7 +136,7 @@ function NavLinks({ route, currentRoute, setIsNavOpen }) {
                                 >
                                     <Link
                                         to={child.path}
-                                        className="text-nowrap text-xs text-gray-500 hover:text-gray-700"
+                                        className="text-nowrap text-sm text-gray-500 hover:text-gray-700"
                                     >
                                         {child.title}
                                     </Link>

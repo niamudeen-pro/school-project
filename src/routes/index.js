@@ -3,31 +3,14 @@ import AppLayout from "../components/layout/AppLayout";
 import NotFoundPage from "../pages/NotFoundPage";
 import HomePage from "../pages/HomePage";
 import FacilitiesPage from "../pages/FacilitiesPage";
-import PrincipalMessagePage from "../pages/PrincipalMessagePage";
 import ContactUsPage from "../pages/ContactUsPage";
-
-const ROUTES_CONFIG = {
-    HOMEPAGE: {
-        path: "/",
-        title: "Home",
-    },
-    ABOUT_US: {
-        title: "About",
-        path: "#about",
-    },
-    FACILITIES: {
-        path: "/facilities",
-        title: "Facilites",
-    },
-    DIRECTORS_MESSAGE: {
-        path: "/principals-message",
-        title: "Director's message",
-    },
-    CONTACT_US: {
-        path: "/contact-us",
-        title: "Contact Us",
-    },
-};
+import DirectorMessagePage from "../pages/DirectorMessagePage";
+import { ROUTES_CONFIG } from "../constants";
+import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage";
+import PublicLayout from "../components/layout/PublicLayout";
+import AdminLayout from "../components/layout/AdminLayout";
+import FacultyPage from "../pages/FacultyPage";
 
 const ALL_ROUTES = [
     {
@@ -51,6 +34,11 @@ const ALL_ROUTES = [
                 title: ROUTES_CONFIG.FACILITIES.title,
                 path: ROUTES_CONFIG.FACILITIES.path,
             },
+            {
+                id: 3,
+                title: ROUTES_CONFIG.FACULTY.title,
+                path: ROUTES_CONFIG.FACULTY.path,
+            },
         ],
     },
     {
@@ -70,19 +58,53 @@ const ALL_ROUTES = [
         id: 5,
         title: ROUTES_CONFIG.DIRECTORS_MESSAGE.title,
         path: ROUTES_CONFIG.DIRECTORS_MESSAGE.path,
-        element: <PrincipalMessagePage />,
+        element: <DirectorMessagePage />,
+        excludeNav: true,
+    },
+    {
+        id: 6,
+        title: ROUTES_CONFIG.LOGIN.title,
+        path: ROUTES_CONFIG.LOGIN.path,
+        element: <LoginPage />,
+        excludeNav: true,
+    },
+    {
+        id: 7,
+        title: ROUTES_CONFIG.DASHBOARD.title,
+        path: ROUTES_CONFIG.DASHBOARD.path,
+        element: <DashboardPage />,
+        isPrivate: true,
+    },
+    {
+        id: 8,
+        title: ROUTES_CONFIG.FACULTY.title,
+        path: ROUTES_CONFIG.FACULTY.path,
+        element: <FacultyPage />,
         excludeNav: true,
     },
 ];
 
 const PUBLIC_ROUTES =
-    (ALL_ROUTES?.length > 0 &&
-        ALL_ROUTES.filter((menu) => !menu.isPrivate && !menu.ishidden)) ||
-    [];
+    (
+        ALL_ROUTES?.length > 0 &&
+        ALL_ROUTES.filter((menu) => !menu.isPrivate && !menu.ishidden)
+    ).map((menu) => {
+        return {
+            ...menu,
+            element: <PublicLayout>{menu.element}</PublicLayout>,
+        };
+    }) || [];
+
 const PRIVATE_ROUTES =
-    (ALL_ROUTES?.length > 0 &&
-        ALL_ROUTES.filter((route) => route.isPrivate && !route.ishidden)) ||
-    [];
+    (
+        ALL_ROUTES?.length > 0 &&
+        ALL_ROUTES.filter((route) => route.isPrivate && !route.ishidden)
+    ).map((menu) => {
+        return {
+            ...menu,
+            element: <AdminLayout>{menu.element}</AdminLayout>,
+        };
+    }) || [];
 
 const _router = createBrowserRouter([
     {

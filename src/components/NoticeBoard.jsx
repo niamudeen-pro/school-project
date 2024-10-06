@@ -30,19 +30,18 @@ export default function NoticeBoard() {
                     </p>
                 </div>
                 <table className="w-full rounded-md">
-                    <thead>
+                    {/* <thead>
                         <tr className="sticky top-0 bg-primary text-white">
-                            {/* {columns.map((column) => (
+                            {columns.map((column) => (
                                 <th
                                     key={column}
                                     className="px-6 py-3 text-left text-xs font-semibold uppercase"
                                 >
                                     {column}
                                 </th>
-                            ))} */}
-                            <th></th>
+                            ))}
                         </tr>
-                    </thead>
+                    </thead> */}
                     <tbody className="border">
                         <tr>
                             {paginatedDataList.map((item, index) => (
@@ -66,7 +65,7 @@ export default function NoticeBoard() {
                         </tr>
                         {paginatedDataList.length === 0 && (
                             <data className="w-full p-4 text-center">
-                                <p className="uppercase text-black">
+                                <p className="text-xs uppercase text-black sm:text-base">
                                     KEEP VISITING FOR LATEST UPDATES ON our
                                     SCHOOL ACTIVITIES.
                                 </p>

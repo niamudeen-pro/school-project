@@ -1,5 +1,11 @@
-import FaciilitesSection from './sections/Faciilites';
+import SeoContent from "../components/shared/SeoContent";
+import FaciilitesSection from "./sections/Faciilites";
 
 export default function FacilitiesPage() {
-    return <FaciilitesSection />;
+    return (
+        <>
+            <SeoContent title="Facilities" />
+            <FaciilitesSection />
+        </>
+    );
 }

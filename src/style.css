@@ -49,7 +49,7 @@ img {
 
 @layer base {
     p {
-        @apply text-sm text-gray-300;
+        @apply text-sm text-gray-300 sm:text-base;
     }
 }
 
