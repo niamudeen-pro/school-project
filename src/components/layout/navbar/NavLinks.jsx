@@ -33,12 +33,12 @@ function MobileNavLinks({
 
                         {/* submenu */}
                     </li>
-                    {activeMenu === route.id &&
+                    {activeMenu === route.path &&
                         route?.childrens?.length > 0 && (
                             <ul className="pt-2">
-                                {route?.childrens.map((child) => (
+                                {route?.childrens.map((child, index) => (
                                     <li
-                                        key={child.id}
+                                        key={index}
                                         className={`custom_border mb-4 ml-4 rounded-md px-4 py-3 ${
                                             currentRoute === child.path &&
                                             "bg-white text-primary"

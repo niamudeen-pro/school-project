@@ -14,69 +14,64 @@ import FacultyPage from "../pages/FacultyPage";
 
 const ALL_ROUTES = [
     {
-        id: 1,
         title: ROUTES_CONFIG.HOMEPAGE.title,
         path: ROUTES_CONFIG.HOMEPAGE.path,
         element: <HomePage />,
     },
     {
-        id: 2,
         title: ROUTES_CONFIG.ABOUT_US.title,
         path: ROUTES_CONFIG.ABOUT_US.path,
         childrens: [
             {
-                id: 1,
                 title: ROUTES_CONFIG.DIRECTORS_MESSAGE.title,
                 path: ROUTES_CONFIG.DIRECTORS_MESSAGE.path,
             },
             {
-                id: 2,
                 title: ROUTES_CONFIG.FACILITIES.title,
                 path: ROUTES_CONFIG.FACILITIES.path,
             },
+        ],
+    },
+    {
+        title: ROUTES_CONFIG.ACADEMICS.title,
+        path: ROUTES_CONFIG.ACADEMICS.path,
+        childrens: [
             {
-                id: 3,
                 title: ROUTES_CONFIG.FACULTY.title,
                 path: ROUTES_CONFIG.FACULTY.path,
             },
         ],
     },
     {
-        id: 3,
         title: ROUTES_CONFIG.CONTACT_US.title,
         path: ROUTES_CONFIG.CONTACT_US.path,
         element: <ContactUsPage />,
     },
     {
-        id: 4,
         title: ROUTES_CONFIG.FACILITIES.title,
         path: ROUTES_CONFIG.FACILITIES.path,
         element: <FacilitiesPage />,
         excludeNav: true,
     },
     {
-        id: 5,
         title: ROUTES_CONFIG.DIRECTORS_MESSAGE.title,
         path: ROUTES_CONFIG.DIRECTORS_MESSAGE.path,
         element: <DirectorMessagePage />,
         excludeNav: true,
     },
     {
-        id: 6,
         title: ROUTES_CONFIG.LOGIN.title,
         path: ROUTES_CONFIG.LOGIN.path,
         element: <LoginPage />,
         excludeNav: true,
     },
     {
-        id: 7,
         title: ROUTES_CONFIG.DASHBOARD.title,
         path: ROUTES_CONFIG.DASHBOARD.path,
         element: <DashboardPage />,
         isPrivate: true,
     },
     {
-        id: 8,
         title: ROUTES_CONFIG.FACULTY.title,
         path: ROUTES_CONFIG.FACULTY.path,
         element: <FacultyPage />,

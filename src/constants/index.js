@@ -65,6 +65,10 @@ const ROUTES_CONFIG = {
         path: "/faculty",
         title: "Faculty",
     },
+    ACADEMICS: {
+        title: "Academics",
+        path: "#academics",
+    },
 };
 
 export {

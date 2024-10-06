@@ -62,11 +62,12 @@ export default function Navbar() {
         [];
 
     const handleActiveMenu = (route) => {
-        const { id } = route;
+        console.log("route: ", route);
+        const { path } = route;
 
         if (route?.childrens?.length > 0) {
-            setActiveMenu(id);
-            if (activeMenu === id) setActiveMenu(null);
+            setActiveMenu(path);
+            if (activeMenu === path) setActiveMenu(null);
         }
     };
 
